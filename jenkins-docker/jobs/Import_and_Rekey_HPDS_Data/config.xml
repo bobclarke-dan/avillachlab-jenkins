@@ -66,7 +66,7 @@ tar -cvzf javabins_rekeyed.tar.gz *.javabin encryption_key
 
 DATA_GIT_HASH=`git blame --abbrev=39 build-spec.json | grep source_dataset_s3_url | cut -f 1 -d &apos; &apos;`
 aws s3 --sse=AES256 cp javabins_rekeyed.tar.gz s3://${stack_s3_bucket}/data/${DATA_GIT_HASH}/javabins_rekeyed.tar.gz
-aws s3 --sse=AES256 cp fence_mapping.json s3://${stack_s3_bucket}/data/`${DATA_GIT_HASH}/fence_mapping.json
+aws s3 --sse=AES256 cp fence_mapping.json s3://${stack_s3_bucket}/data/${DATA_GIT_HASH}/fence_mapping.json
 </command>
     </hudson.tasks.Shell>
   </builders>
